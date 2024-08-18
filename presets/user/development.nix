@@ -21,7 +21,15 @@ in
     programs = {
       alacritty.enable = true;
       alacritty.settings = {
+        window.decorations = "None";
         window.padding.x = 10;
+
+        font.normal.family = "MonaspiceNe Nerd Font Mono";
+        font.normal.style = "Regular";
+        font.bold.family = "MonaspiceNe Nerd Font Mono";
+        font.bold.style = "Bold";
+        font.italic.family = "MonaspiceNe Nerd Font Mono";
+        font.italic.style = "Italic";
 
         colors = {
           primary.background = "#222436";
@@ -63,7 +71,11 @@ in
       direnv.config.hide_env_diff = true;
       direnv.nix-direnv.enable = true;
 
-      fish.enable = true;
+      fish.enable = false;
+      fish.interactiveShellInit = ''
+        set fish_greeting
+        fish_vi_key_bindings
+      '';
       fish.shellAliases = {
         docker = mkIf wsl "/run/current-system/sw/bin/docker";
         g = "git";
@@ -214,12 +226,6 @@ in
         nix_shell = {
           format = "via [$symbol $name]($style) ";
           symbol = "󱄅";
-        };
-
-        username = {
-          disabled = false;
-          show_always = true;
-          style_user = "white bold";
         };
       };
 

@@ -1,6 +1,8 @@
-{ config, schematics, ...}: let
+{ config, schematics, ... }:
+let
   putquo = "putquo";
-in schematics.forUser putquo {
+in
+schematics.forUser putquo {
   inherit config;
   withOverrides = {
     home-manager.users.${putquo} = {

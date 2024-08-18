@@ -23,10 +23,9 @@ in
   };
 
   config = mkIf config.presets.system.default.enable {
-    # environment.sessionVariables.MOZ_ENABLE_WAYLAND = 0;
-
     environment.systemPackages = with pkgs; [
       bind
+      btop
       curl
       fzf
       git
@@ -34,7 +33,7 @@ in
       jq
       libgccjit
       lua
-      nodejs_latest
+      nix-index
       protonvpn-gui
       ripgrep
       tree
@@ -47,7 +46,7 @@ in
     ];
 
     fonts.packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "CascadiaMono" ]; })
+      (nerdfonts.override { fonts = [ "Monaspace" ]; })
     ];
 
     home-manager.useGlobalPkgs = true;
