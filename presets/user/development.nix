@@ -23,44 +23,11 @@ in
       alacritty.settings = {
         window.decorations = "None";
         window.padding.x = 10;
-
-        font.normal.family = "MonaspiceNe Nerd Font Mono";
-        font.normal.style = "Regular";
-        font.bold.family = "MonaspiceNe Nerd Font Mono";
-        font.bold.style = "Bold";
-        font.italic.family = "MonaspiceNe Nerd Font Mono";
-        font.italic.style = "Italic";
-
-        colors = {
-          primary.background = "#222436";
-          primary.foreground = "#c8d3f5";
-
-          normal.black = "#1bd12b";
-          normal.red = "#ff757f";
-          normal.green = "#c3e88d";
-          normal.yellow = "#ffc777";
-          normal.blue = "#82aaff";
-          normal.magenta = "#c099ff";
-          normal.cyan = "#86e1fc";
-          normal.white = "#828bb8";
-
-          bright.black = "#444a73";
-          bright.red = "#ff757f";
-          bright.green = "#c3e88d";
-          bright.yellow = "#ffc777";
-          bright.blue = "#82aaff";
-          bright.magenta = "#c099ff";
-          bright.cyan = "#86e1fc";
-          bright.white = "#c8d3f5";
-
-          indexed_colors = [
-            { index = 16; color = "#ff966c"; }
-            { index = 17; color = "#c53b53"; }
-          ];
-        };
       };
 
       bat.enable = true;
+
+      btop.enable = true;
 
       carapace.enable = true;
       carapace.enableFishIntegration = false;
@@ -159,10 +126,10 @@ in
         normal = { X = "extend_line_above"; };
         select = { X = "extend_line_above"; };
       };
-      helix.settings.theme = "tokyonight_moon";
+      helix.settings.theme = "snazzy";
 
       nushell.enable = true;
-      nushell.environmentVariables = config.home.sessionVariables;
+      nushell.environmentVariables = lib.mapAttrs (k: v: "\"${builtins.toString v}\"") config.home.sessionVariables;
       nushell.extraConfig = ''
         let carapace_completer = {|spans|
           carapace $spans.0 nushell ...$spans
@@ -236,5 +203,7 @@ in
       zoxide.enableZshIntegration = false;
       zoxide.options = [ "--cmd" "cd" ];
     };
+
+    stylix.targets.helix.enable = false;
   };
 }

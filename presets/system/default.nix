@@ -25,7 +25,6 @@ in
   config = mkIf config.presets.system.default.enable {
     environment.systemPackages = with pkgs; [
       bind
-      btop
       curl
       fzf
       git
@@ -71,6 +70,17 @@ in
 
     services.xserver.desktopManager.xterm.enable = false;
     services.xserver.excludePackages = [ pkgs.xterm ];
+
+    stylix.enable = true;
+    stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/snazzy.yaml";
+    stylix.fonts.monospace = with pkgs; {
+      name = "MonaspiceNe Nerd Font Mono";
+      package = (nerdfonts.override { fonts = [ "Monaspace" ]; });
+    };
+    stylix.image = pkgs.fetchurl {
+      url = "https://w.wallhaven.cc/full/6d/wallhaven-6d3836.jpg";
+      sha256 = "sha256-v+tcQN2PlwLxQ1t5leopl2j+vctI5DkWD1NRgbvNfuA=";
+    };
 
     systemd.services.docker-desktop-proxy.script = mkForce ''${config.wsl.wslConf.automount.root}/wsl/docker-desktop/docker-desktop-user-distro proxy --docker-desktop-root ${config.wsl.wslConf.automount.root}/wsl/docker-desktop "C:\Program Files\Docker\Docker\resources"'';
 

@@ -8,6 +8,7 @@ let
   nixosWsl = inputs.nixos-wsl.nixosModules.wsl;
   pkgs = import inputs.nixpkgs { inherit system; };
   specialArgs.schematics = import ../schematics { inherit pkgs; };
+  stylix = inputs.stylix.nixosModules.stylix;
   systemFunc = lib.nixosSystem;
   systemPresets = ../presets/system;
   userConfig = ../users;
@@ -19,6 +20,7 @@ systemFunc {
     hostConfig
     nixosCosmic
     nixosWsl
+    stylix
     systemPresets
     userConfig
     { nixpkgs.overlays = overlays; }

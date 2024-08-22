@@ -17,6 +17,8 @@
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
     nur.url = "github:nix-community/nur";
+
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = { self, ... } @ inputs:
