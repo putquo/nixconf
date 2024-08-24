@@ -73,14 +73,32 @@ in
 
     stylix.enable = true;
     stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/snazzy.yaml";
-    stylix.fonts.monospace = with pkgs; {
-      name = "MonaspiceNe Nerd Font Mono";
-      package = (nerdfonts.override { fonts = [ "Monaspace" ]; });
+    stylix.cursor = with pkgs; {
+      name = "Bibata-Modern-Classic";
+      package = bibata-cursors;
+      size = 28;
+    };
+    stylix.fonts = with pkgs; {
+      monospace = {
+        name = "MonaspiceNe Nerd Font Mono";
+        package = (nerdfonts.override { fonts = [ "Monaspace" ]; });
+      };
+
+      sansSerif = {
+        name = "Noto Sans";
+        package = noto-fonts;
+      };
+
+      serif = {
+        name = "Noto Serif";
+        package = noto-fonts;
+      };
     };
     stylix.image = pkgs.fetchurl {
-      url = "https://w.wallhaven.cc/full/6d/wallhaven-6d3836.jpg";
-      sha256 = "sha256-v+tcQN2PlwLxQ1t5leopl2j+vctI5DkWD1NRgbvNfuA=";
+      url = "https://w.wallhaven.cc/full/rr/wallhaven-rr99r1.jpg";
+      sha256 = "sha256-pTPfP5NWREK0LevMSH5ae3gDbKf7wH/V1sUEoPLrRb4=";
     };
+    stylix.polarity = "dark";
 
     systemd.services.docker-desktop-proxy.script = mkForce ''${config.wsl.wslConf.automount.root}/wsl/docker-desktop/docker-desktop-user-distro proxy --docker-desktop-root ${config.wsl.wslConf.automount.root}/wsl/docker-desktop "C:\Program Files\Docker\Docker\resources"'';
 
