@@ -31,15 +31,11 @@
 
   programs.home-manager.enable = true;
 
-  xdg.configFile."1Password/ssh/agent.toml".text = ''
-    [[ssh-keys]]
-    vault = "${config.tag}"
-  '';
-
   xdg.configFile."Yubico/u2f_keys".text =
-    "justin:J10bEUa4W6n6a3EidpTZ3ip0ee48tbyY/0Fuu02W2NwPGzGtCn2UxjsGXYciNO3otL+YVu04cUfVP7iDbdwj1w=="
-    + ",G285zaLYdUFaTMg2WlhWvSeRkV39fG3p6jFEjK8AEAvyQViziFCuUE31fdSCPT2P8vKx8fcaPEHuXTGMeIzCMA=="
-    + ",es256,+presence";
+    "preston:YRyD9p+nEgdTnj6DefvG2pey7mVGn931NnfmyRhhU6ObaPRPF+RYDRH0YXU1go0r4XClZpubnXUSAA2soUfiDg=="
+    + ",onnVg36QcW0RSU7ij+mIOjvVm71KrAOZ2/Y1k0kL/6sFD1ggWAa4NvWv4ZOyRc1MfXEmY6+qFNaUJRMTbab/EQ=="
+    + ",es256,+presence:UKD6uA7TxPZxHlX5CNlSkXfNcncOJ9O6XGWVcEDpftYzY0gaqaWknCc193a0j7tuzBUN3JUKQVxjURUaC3UkrQ=="
+    + ",3LkMS/SIv0WD7l/L/Og0Bj6tWxrLDbfTtR9V+0RUwADaXWNFbzvVfM5KzaWWviOT/fVcZoN+9ibXwuMGrRmzsw==,es256,+presence";
 
   xdg.userDirs.enable = true;
   xdg.userDirs.createDirectories = true;

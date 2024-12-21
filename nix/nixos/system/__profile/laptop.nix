@@ -1,6 +1,10 @@
 { super, ... }@_haumeaArgs:
-{ ... }@_nixosModuleArgs: {
+{ pkgs, ... }@_nixosModuleArgs: {
   imports = [
     super.pc
+  ];
+
+  services.udev.packages = [
+    pkgs.android-udev-rules
   ];
 }

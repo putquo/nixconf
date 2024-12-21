@@ -14,9 +14,9 @@
 
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
-    (nerdfonts.override { fonts = [ "Monaspace" ]; })
+    nerd-fonts.monaspace
   ];
 
   home-manager.sharedModules = [
@@ -56,7 +56,7 @@
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
-    inputs.nur.overlay
+    inputs.nur.overlays.default
     (final: prev: {
       _1password-gui = prev._1password-gui.overrideAttrs (prev: {
         postInstall = (prev.postInstall or "") + ''
@@ -78,6 +78,8 @@
       wallpaper = "${inputs.self}/assets/bg01.svg";
 
       yazi = inputs.yazi.packages.default;
+
+      openvpn3 = inputs.nixpkgs-stable.legacyPackages.openvpn3;
     })
   ];
 
@@ -92,7 +94,7 @@
   services.fstrim.enable = true;
 
   stylix.enable = true;
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
   stylix.cursor = {
     name = "Pop";
     package = pkgs.pop-icon-theme;
@@ -111,12 +113,12 @@
 
     monospace = {
       name = "MonaspiceNe Nerd Font Mono";
-      package = (pkgs.nerdfonts.override { fonts = [ "Monaspace" ]; });
+      package = pkgs.nerd-fonts.monaspace;
     };
   };
   stylix.image = pkgs.fetchurl {
-    url = "https://images.alphacoders.com/134/1347517.png";
-    sha256 = "sha256-54nV06WUz/lThyTNtYtYJffrDtSBqXVMcWDqoClKIv0=";
+    url = "https://raw.githubusercontent.com/aynp/dracula-wallpapers/refs/heads/main/Art/4k/Dracula.png";
+    sha256 = "sha256-+kZN+QqB7AOjqJXvuNAhoPApbi5JR+cwtCgWOD8vJ4E=";
   };
 
   time.timeZone = "Europe/Amsterdam";

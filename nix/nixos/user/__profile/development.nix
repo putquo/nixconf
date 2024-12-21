@@ -19,8 +19,8 @@
     init.defaultBranch = "main";
     pull.rebase = true;
   };
-  programs.git.userEmail = lib.mkDefault "jan.justin.vtonder@gmail.com";
-  programs.git.userName = "Jan-Justin van Tonder";
+  programs.git.userEmail = lib.mkDefault "46090392+putquo@users.noreply.github.com";
+  programs.git.userName = "Preston van Tonder";
 
   programs.helix.enable = true;
   programs.helix.defaultEditor = true;
@@ -51,7 +51,7 @@
     };
     keys.normal = { X = "extend_line_above"; };
     keys.select = { X = "extend_line_above"; };
-    theme = "kanagawa";
+    theme = "dracula";
   };
   programs.helix.themes = { empty = { }; };
 
@@ -62,8 +62,6 @@
   '';
 
   programs.starship.enable = true;
-
-  programs.yazi.enable = true;
 
   programs.zoxide.enable = true;
   programs.zoxide.options = [ "--cmd" "cd" ];
