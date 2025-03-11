@@ -28,6 +28,8 @@
   programs.fish.shellAbbrs.gst = "git status";
   programs.fish.shellAliases.g = "git";
 
+  programs.gh.enable = true;
+
   programs.git.enable = true;
   programs.git.difftastic.enable = true;
   programs.git.extraConfig = {

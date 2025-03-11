@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     difftastic
     docker-compose
+    claude-code
     fd
     fzf
     just
