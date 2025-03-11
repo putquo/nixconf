@@ -7,6 +7,7 @@
     fzf
     just
     jq
+    jwt-cli
     poppler
     ripgrep
     theme-sh
