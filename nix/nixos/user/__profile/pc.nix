@@ -17,7 +17,7 @@
     id = 0;
     name = "default";
     isDefault = true;
-    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+    extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
       onepassword-password-manager
       ublock-origin
     ];
@@ -30,6 +30,8 @@
   '';
 
   programs.home-manager.enable = true;
+
+  stylix.targets.firefox.profileNames = [ "default" ];
 
   xdg.userDirs.enable = true;
   xdg.userDirs.createDirectories = true;

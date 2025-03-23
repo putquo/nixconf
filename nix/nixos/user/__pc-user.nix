@@ -8,6 +8,7 @@
       super.profile.pc
     ];
 
+    stylix.targets.gnome-text-editor.enable = false;
     stylix.targets.helix.enable = false;
   };
 
