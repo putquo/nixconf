@@ -68,13 +68,6 @@
         '';
       });
 
-      fprintd = prev.fprintd.overrideAttrs (prev: {
-        mesonCheckFlags = [
-          "--no-suite"
-          "fprintd:TestPamFprintd"
-        ];
-      });
-
       helix = inputs.helix.packages.default;
       wallpaper = "${inputs.self}/assets/bg01.svg";
 
