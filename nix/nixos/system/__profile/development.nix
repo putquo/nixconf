@@ -1,6 +1,7 @@
 { ... }@_haumeaArgs:
 { pkgs, ... }@_nixosModuleArgs: {
   environment.systemPackages = with pkgs; [
+    aider-chat
     difftastic
     docker-compose
     claude-code

@@ -1,5 +1,10 @@
 { ... }@_haumeaArgs:
 { config, lib, pkgs, ... }@_hmModuleArgs: {
+  home.sessionVariables = {
+    AIDER_DARK_MODE = "true";
+    OLLAMA_API_BASE = "http://lima:11434";
+  };
+
   programs.bat.enable = true;
 
   programs.direnv.enable = true;
