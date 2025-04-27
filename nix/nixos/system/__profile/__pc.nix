@@ -1,7 +1,6 @@
 { inputs, ... }@_haumeaArgs:
 { lib, pkgs, ... }@_nixosModuleArgs: {
   imports = [
-    inputs.cosmic.nixosModules.default
     inputs.home-manager.nixosModules.home-manager
     inputs.stylix.nixosModules.stylix
   ];

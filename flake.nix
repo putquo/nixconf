@@ -2,9 +2,6 @@
   description = "Nix-based system configuration";
 
   inputs = {
-    cosmic.url = "github:lilyinstarlight/nixos-cosmic";
-    cosmic.inputs.nixpkgs.follows = "nixpkgs";
-
     devenv.url = "github:cachix/devenv";
 
     haumea.url = "github:nix-community/haumea";
