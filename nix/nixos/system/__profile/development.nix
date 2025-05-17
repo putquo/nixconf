@@ -13,7 +13,9 @@
     poppler
     ripgrep
     theme-sh
+    tree
     unar
+    yq
   ];
 
   nix.settings.substituters = [
