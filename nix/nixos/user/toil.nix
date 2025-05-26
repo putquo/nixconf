@@ -18,6 +18,7 @@
       google-cloud-sdk
       jetbrains.idea-community-bin
       kubectl
+      kubectx
       kubelogin-oidc
       slack
       sops
