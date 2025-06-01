@@ -38,6 +38,8 @@
 
   networking.hostName = name;
 
+  services.resolved.enable = true;
+
   swapDevices = [ ];
   system.stateVersion = "23.11";
 }

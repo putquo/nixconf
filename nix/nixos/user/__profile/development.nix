@@ -33,6 +33,8 @@
   programs.fish.shellAbbrs.gst = "git status";
   programs.fish.shellAliases.g = "git";
 
+  programs.fish.shellAliases.openvpn = "openvpn3";
+
   programs.gh.enable = true;
 
   programs.git.enable = true;

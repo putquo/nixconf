@@ -71,8 +71,6 @@
       wallpaper = "${inputs.self}/assets/bg01.svg";
 
       yazi = inputs.yazi.packages.default;
-
-      openvpn3 = inputs.nixpkgs-stable.legacyPackages.openvpn3;
     })
   ];
 
