@@ -77,7 +77,27 @@
     pkgs.android-udev-rules
   ];
 
-  systemd.targets.multi-user.wants = [ "wazuh.service" ];
+  systemd.services.openvpn = {
+    description = "OpenVPN";
+    after = [ "dbus.service" "network-online.target" ];
+    wants = [ "dbus.service" "network-online.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig =
+      let
+        openvpn3-systemd = "${pkgs.openvpn3}/libexec/openvpn3-linux/openvpn3-systemd";
+      in
+      {
+        Type = "notify";
+        PrivateTmp = true;
+        ProtectSystem = true;
+        ProtectHome = true;
+        Environment = "PYTHONUNBUFFERED=on";
+        ExecStart = "${openvpn3-systemd} --start formelio";
+        ExecReload = "${openvpn3-systemd} --restart formelio";
+        ExecStop = "${openvpn3-systemd} --stop formelio";
+      };
+  };
+
   systemd.services.wazuh = {
     description = "Sets up wazuh container";
     after = [ "network.target" "network-online.target" ];
@@ -87,4 +107,6 @@
       ExecStart = "systemd-nspawn --keep-unit --boot -D /var/lib/machines/byte";
     };
   };
+
+  systemd.targets.multi-user.wants = [ "openvpn.service" "wazuh.service" ];
 }
