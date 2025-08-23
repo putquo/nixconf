@@ -1,5 +1,9 @@
 { ... }@_haumeaArgs:
 { config, lib, pkgs, ... }@_hmModuleArgs: {
+  home.packages = [
+    pkgs.devenv
+  ];
+
   home.sessionVariables = {
     AIDER_DARK_MODE = "true";
     OLLAMA_API_BASE = "http://lima:11434";
