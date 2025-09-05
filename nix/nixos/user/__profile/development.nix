@@ -86,6 +86,18 @@
   };
   programs.helix.themes = { empty = { }; };
 
+  programs.jujutsu.enable = true;
+  programs.jujutsu.settings.user = {
+    email = lib.mkDefault "46090392+putquo@users.noreply.github.com";
+    name = "Preston van Tonder";
+  };
+  programs.jujutsu.settings.signing = {
+    backend = "ssh";
+    backends.ssh.program = "${pkgs._1password-gui}/bin/op-ssh-sign";
+    behavior = "own";
+  };
+  programs.jujutsu.settings.ui.pager = ":builtin";
+
   programs.ssh.enable = true;
   programs.ssh.extraConfig = ''
     Host *
