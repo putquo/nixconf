@@ -39,6 +39,7 @@
   networking.hostName = name;
 
   services.resolved.enable = true;
+  services.netbird.enable = true;
 
   swapDevices = [ ];
   system.stateVersion = "23.11";
