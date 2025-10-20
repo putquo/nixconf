@@ -36,8 +36,10 @@
   programs.fish.shellAbbrs.grst = "git restore --staged";
   programs.fish.shellAbbrs.gst = "git status";
   programs.fish.shellAliases.g = "git";
-
   programs.fish.shellAliases.openvpn = "openvpn3";
+
+  programs.fzf.enable = true;
+  programs.fzf.enableFishIntegration = true;
 
   programs.gh.enable = true;
 
