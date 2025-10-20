@@ -7,6 +7,7 @@
     claude-code
     fd
     fzf
+    oauth2c
     just
     jq
     jwt-cli
