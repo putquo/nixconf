@@ -14,7 +14,7 @@
       super.profile.gaming
     ];
 
-    programs.git.extraConfig.user.signingKey =
+    programs.git.settings.user.signingKey =
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK4z+GCnpEmPq2uRl1Ol8a83Xjmeiqk1q8XV3cZh7pWZ";
 
     xdg.configFile."Yubico/u2f_keys".text =

@@ -11,6 +11,8 @@
 
   programs.bat.enable = true;
 
+  programs.difftastic.git.enable = true;
+
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
   programs.direnv.config.hide_env_diff = true;
@@ -45,15 +47,15 @@
 
   programs.git.enable = true;
   programs.git.difftastic.enable = true;
-  programs.git.extraConfig = {
+  programs.git.settings = {
     commit.gpgsign = true;
     gpg.format = "ssh";
     gpg.ssh.program = "${pkgs._1password-gui}/bin/op-ssh-sign";
     init.defaultBranch = "main";
     pull.rebase = true;
+    user.email = lib.mkDefault "46090392+putquo@users.noreply.github.com";
+    user.name = "Preston van Tonder";
   };
-  programs.git.userEmail = lib.mkDefault "46090392+putquo@users.noreply.github.com";
-  programs.git.userName = "Preston van Tonder";
 
   programs.helix.enable = true;
   programs.helix.defaultEditor = true;
