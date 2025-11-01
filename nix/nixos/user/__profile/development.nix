@@ -11,6 +11,7 @@
 
   programs.bat.enable = true;
 
+  programs.difftastic.enable = true;
   programs.difftastic.git.enable = true;
 
   programs.direnv.enable = true;
@@ -46,7 +47,6 @@
   programs.gh.enable = true;
 
   programs.git.enable = true;
-  programs.git.difftastic.enable = true;
   programs.git.settings = {
     commit.gpgsign = true;
     gpg.format = "ssh";
@@ -103,6 +103,19 @@
   programs.jujutsu.settings.ui.pager = ":builtin";
 
   programs.ssh.enable = true;
+  programs.ssh.enableDefaultConfig = false;
+  programs.ssh.matchBlocks."*" = {
+    forwardAgent = false;
+    addKeysToAgent = "no";
+    compression = false;
+    serverAliveInterval = 0;
+    serverAliveCountMax = 3;
+    hashKnownHosts = false;
+    userKnownHostsFile = "~/.ssh/known_hosts";
+    controlMaster = "no";
+    controlPath = "~/.ssh/master-%r@%n:%p";
+    controlPersist = "no";
+  };
   programs.ssh.extraConfig = ''
     Host *
       IdentityAgent ~/.1password/agent.sock 
