@@ -16,7 +16,7 @@
     home.packages = with pkgs; [
       gnumake
       google-cloud-sdk
-      jetbrains.idea-community-bin
+      jetbrains.idea-oss
       kubectl
       kubectx
       kubelogin-oidc
@@ -74,10 +74,6 @@
   };
 
   programs.openvpn3.enable = true;
-
-  services.udev.packages = [
-    pkgs.android-udev-rules
-  ];
 
   systemd.services.openvpn = {
     description = "OpenVPN";
