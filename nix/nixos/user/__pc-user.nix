@@ -16,7 +16,7 @@
 
   users.users.${username} = {
     description = tag;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "docker" "networkmanager" "wheel" ];
     initialPassword = "initPass";
     isNormalUser = true;
     name = username;
