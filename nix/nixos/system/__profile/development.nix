@@ -1,16 +1,17 @@
 { ... }@_haumeaArgs:
 { pkgs, ... }@_nixosModuleArgs: {
   environment.systemPackages = with pkgs; [
-    aider-chat
     docker-compose
     claude-code
     fd
     oauth2c
+    openssl
     just
     jq
     jwt-cli
     poppler
     ripgrep
+    step-cli
     theme-sh
     tree
     unar
