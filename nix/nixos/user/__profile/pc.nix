@@ -12,6 +12,7 @@
   programs.btop.enable = true;
 
   programs.firefox.enable = true;
+  programs.firefox.configPath = "${config.xdg.configHome}/mozilla/firefox";
   programs.firefox.package = pkgs.firefox-bin;
   programs.firefox.profiles.default = {
     id = 0;
@@ -34,6 +35,7 @@
   stylix.targets.firefox.profileNames = [ "default" ];
 
   xdg.userDirs.enable = true;
+  xdg.userDirs.setSessionVariables = true;
   xdg.userDirs.createDirectories = true;
   xdg.userDirs.desktop = "$HOME/desktop";
   xdg.userDirs.documents = "$HOME/documents";

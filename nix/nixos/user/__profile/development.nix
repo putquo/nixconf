@@ -47,10 +47,10 @@
   programs.gh.enable = true;
 
   programs.git.enable = true;
+  programs.git.signing.format = "ssh";
+  programs.git.signing.signByDefault = true;
+  programs.git.signing.signer = "${pkgs._1password-gui}/bin/op-ssh-sign";
   programs.git.settings = {
-    commit.gpgsign = true;
-    gpg.format = "ssh";
-    gpg.ssh.program = "${pkgs._1password-gui}/bin/op-ssh-sign";
     init.defaultBranch = "main";
     pull.rebase = true;
     user.email = lib.mkDefault "46090392+putquo@users.noreply.github.com";
@@ -104,7 +104,7 @@
 
   programs.ssh.enable = true;
   programs.ssh.enableDefaultConfig = false;
-  programs.ssh.matchBlocks."*" = {
+  programs.ssh.settings."*" = {
     forwardAgent = false;
     addKeysToAgent = "no";
     compression = false;
@@ -440,5 +440,5 @@
   programs.zoxide.enable = true;
   programs.zoxide.options = [ "--cmd" "cd" ];
 
-  xdg.userDirs.extraConfig.XDG_PROJECTS_DIR = "$HOME/projects";
+  xdg.userDirs.extraConfig.PROJECTS = "$HOME/projects";
 }
