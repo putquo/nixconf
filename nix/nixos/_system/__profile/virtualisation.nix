@@ -1,10 +1,10 @@
-{ ... }@_haumeaArgs:
-{ pkgs, ... }@_nixosModuleArgs: {
-  environment.systemPackages = with pkgs; [
-    spice
-    spice-gtk
-    spice-protocol
-    virt-viewer
+{ ... }@haumeaArgs:
+{ pkgs, ... }@nixosModuleArgs: {
+  environment.systemPackages = [
+    pkgs.spice
+    pkgs.spice-gtk
+    pkgs.spice-protocol
+    pkgs.virt-viewer
   ];
 
 

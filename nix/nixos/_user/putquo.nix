@@ -1,5 +1,5 @@
-{ name, super, ... }@_haumeaArgs:
-{ ... }@_nixosModuleArgs:
+{ name, super, ... }@haumeaArgs:
+{ ... }@nixosModuleArgs:
 {
   imports = [
     (super.pc-user {

@@ -1,5 +1,5 @@
-{ ... }@_haumeaArgs:
-{ config, lib, pkgs, ... }@_hmModuleArgs: {
+{ ... }@haumeaArgs:
+{ ... }@hmModuleArgs: {
   programs.mangohud.enable = true;
   programs.mangohud.settings.full = true;
   programs.mangohud.settings.no_display = true;

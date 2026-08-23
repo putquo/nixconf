@@ -1,7 +1,11 @@
-{ ... }@_haumeaArgs:
-{ config, lib, pkgs, ... }@_hmModuleArgs: {
+{ ... }@haumeaArgs:
+{ config, lib, pkgs, ... }@homeManagerModuleArgs: {
   home.packages = [
     pkgs.devenv
+    pkgs.oauth2c
+    pkgs.just
+    pkgs.jwt-cli
+    pkgs.step-cli
   ];
 
   home.sessionVariables = {
@@ -10,6 +14,8 @@
   };
 
   programs.bat.enable = true;
+
+  programs.claude-code.enable = true;
 
   programs.difftastic.enable = true;
   programs.difftastic.git.enable = true;

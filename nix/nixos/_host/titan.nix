@@ -1,5 +1,5 @@
-{ name, super, ... }@_haumeaArgs:
-{ pkgs, ... }@_nixosModuleArgs: {
+{ name, super, ... }@haumeaArgs:
+{ pkgs, ... }@nixosModuleArgs: {
   imports = [
     super.hardware.notDetected
     super.platform."x86_64-linux"

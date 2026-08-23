@@ -1,5 +1,5 @@
-{ ... }@_haumeaArgs:
-{ config, ... }@_nixosModuleArgs: {
+{ ... }@haumeaArgs:
+{ config, ... }@nixosModuleArgs: {
   hardware.nvidia.modesetting.enable = true;
   hardware.nvidia.nvidiaSettings = true;
   hardware.nvidia.open = true;

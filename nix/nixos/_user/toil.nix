@@ -1,7 +1,6 @@
-{ name, super, ... }@_haumeaArgs:
-{ config, pkgs, ... }@_nixosModuleArgs: {
+{ name, super, ... }@haumeaArgs:
+{ pkgs, ... }@nixosModuleArgs: {
   imports = [
-    # Remove some boilerplate
     (super.pc-user {
       tag = "Work";
       username = name;
@@ -13,20 +12,20 @@
       super.profile.development
     ];
 
-    home.packages = with pkgs; [
-      gnumake
-      google-cloud-sdk
-      jetbrains.idea-oss
-      kubectl
-      kubectx
-      kubelogin-oidc
-      slack
-      sops
-      yaml-language-server
+    home.packages = [
+      pkgs.gnumake
+      pkgs.google-cloud-sdk
+      pkgs.jetbrains.idea
+      pkgs.kubectl
+      pkgs.kubectx
+      pkgs.kubelogin-oidc
+      pkgs.slack
+      pkgs.sops
+      pkgs.yaml-language-server
 
-      (wrapHelm kubernetes-helm {
+      (pkgs.wrapHelm pkgs.kubernetes-helm {
         plugins = [
-          kubernetes-helmPlugins.helm-secrets
+          pkgs.kubernetes-helmPlugins.helm-secrets
         ];
       })
     ];
@@ -73,29 +72,6 @@
       + ",P+ikZBs2dfg9zX+OE9+LpsaC1TCdul1Ny6O5bdjgwsuDjj/btgphW0fgY0MXKAh2hF4Cm0c6rw5RjzXpriKn0w==,es256,+presence";
   };
 
-  programs.openvpn3.enable = true;
-
-  systemd.services.openvpn = {
-    description = "OpenVPN";
-    after = [ "dbus.service" "network-online.target" ];
-    wants = [ "dbus.service" "network-online.target" ];
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig =
-      let
-        openvpn3-systemd = "${pkgs.openvpn3}/libexec/openvpn3-linux/openvpn3-systemd";
-      in
-      {
-        Type = "notify";
-        PrivateTmp = true;
-        ProtectSystem = true;
-        ProtectHome = true;
-        Environment = "PYTHONUNBUFFERED=on";
-        ExecStart = "${openvpn3-systemd} --start formelio";
-        ExecReload = "${openvpn3-systemd} --restart formelio";
-        ExecStop = "${openvpn3-systemd} --stop formelio";
-      };
-  };
-
   systemd.services.wazuh = {
     description = "Sets up wazuh container";
     after = [ "network.target" "network-online.target" ];
@@ -106,5 +82,5 @@
     };
   };
 
-  systemd.targets.multi-user.wants = [ "openvpn.service" "wazuh.service" ];
+  systemd.targets.multi-user.wants = [ "wazuh.service" ];
 }

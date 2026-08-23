@@ -1,6 +1,6 @@
-{ super, ... }@_haumeaArgs:
-{ tag, username }@_profileArgs:
-{ pkgs, ... }@_nixosModuleArgs: {
+{ super, ... }@haumeaArgs:
+{ tag, username }@profileArgs:
+{ pkgs, ... }@nixosModuleArgs: {
 
   home-manager.users.${username} = {
     inherit tag;

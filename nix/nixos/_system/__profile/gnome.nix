@@ -1,5 +1,5 @@
-{ ... }@_haumeaArgs:
-{ config, pkgs, ... }@_nixosModuleArgs: {
+{ ... }@haumeaArgs:
+{ ... }@nixosModuleArgs: {
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;

@@ -1,5 +1,5 @@
-{ cell, name, super, ... }@_haumeaArgs: {
-  host = cell.host.${name};
+{ name, root, super, ... }@haumeaArgs: {
+  host = root.nixos.host.${name};
 
   profiles = [
     super.profile.cosmic
@@ -9,6 +9,6 @@
   ];
 
   users = [
-    cell.user.toil
+    root.nixos.user.toil
   ];
 }

@@ -1,16 +1,16 @@
-{ ... }@_haumeaArgs:
-{ config, pkgs, ... }@_nixosModuleArgs: {
+{ ... }@haumeaArgs:
+{ pkgs, ... }@nixosModuleArgs: {
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
   environment.sessionVariables.XDG_SESSION_TYPE = "wayland";
 
-  environment.systemPackages = with pkgs; [
-    grim
-    mpv
-    slurp
-    wl-clipboard
-    wl-screenrec
-    wlr-randr
+  environment.systemPackages = [
+    pkgs.grim
+    pkgs.mpv
+    pkgs.slurp
+    pkgs.wl-clipboard
+    pkgs.wl-screenrec
+    pkgs.wlr-randr
   ];
 
   services.displayManager.enable = true;

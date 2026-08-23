@@ -1,22 +1,21 @@
-{ inputs, ... }@_haumeaArgs:
-{ lib, pkgs, ... }@_nixosModuleArgs: {
+{ inputs, ... }@haumeaArgs:
+{ lib, pkgs, ... }@nixosModuleArgs: {
   imports = [
     inputs.home-manager.nixosModules.home-manager
     inputs.stylix.nixosModules.stylix
   ];
 
-  environment.systemPackages = with pkgs; [
-    bc
-    curl
-    vim
-    wget
+  environment.systemPackages = [
+    pkgs.curl
+    pkgs.vim
+    pkgs.wget
   ];
 
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-color-emoji
-    nerd-fonts.monaspace
+  fonts.packages = [
+    pkgs.noto-fonts
+    pkgs.noto-fonts-cjk-sans
+    pkgs.noto-fonts-color-emoji
+    pkgs.nerd-fonts.monaspace
   ];
 
   home-manager.backupFileExtension = "backup";
@@ -68,7 +67,6 @@
         '';
       });
 
-      helix = inputs.helix.packages.default;
       wallpaper = "${inputs.self}/assets/bg01.svg";
 
       yazi = inputs.yazi.packages.default;

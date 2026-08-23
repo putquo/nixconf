@@ -1,5 +1,5 @@
-{ ... }@_haumeaArgs:
-{ config, lib, osConfig, pkgs, ... }@_hmModuleArgs: {
+{ ... }@haumeaArgs:
+{ config, osConfig, pkgs, ... }@homeManagerArgs: {
   home.stateVersion = osConfig.system.stateVersion;
 
   programs.alacritty.enable = true;
@@ -18,9 +18,9 @@
     id = 0;
     name = "default";
     isDefault = true;
-    extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-      onepassword-password-manager
-      ublock-origin
+    extensions.packages = [
+      pkgs.nur.repos.rycee.firefox-addons.onepassword-password-manager
+      pkgs.nur.repos.rycee.firefox-addons.ublock-origin
     ];
   };
 

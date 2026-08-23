@@ -1,5 +1,5 @@
-{ ... }@_haumeaArgs:
-{ pkgs, ... }@_nixosModuleArgs:
+{ ... }@haumeaArgs:
+{ pkgs, ... }@nixosModuleArgs:
 let
   wazuhUser = "wazuh";
   wazuhGroup = wazuhUser;
