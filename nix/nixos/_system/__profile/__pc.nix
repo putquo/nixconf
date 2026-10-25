@@ -61,8 +61,8 @@
       _1password-gui = prev._1password-gui.overrideAttrs (prev: {
         postInstall = (prev.postInstall or "") + ''
           mkdir -p $out/etc/xdg/autostart
-          cp $out/share/applications/${prev.pname}.desktop $out/etc/xdg/autostart/${prev.pname}.desktop
-          substituteInPlace $out/etc/xdg/autostart/${prev.pname}.desktop \
+          cp $out/share/applications/com.onepassword.OnePassword.desktop $out/etc/xdg/autostart/com.onepassword.OnePassword.desktop
+          substituteInPlace $out/etc/xdg/autostart/com.onepassword.OnePassword.desktop \
             --replace 'Exec=${prev.pname} %U' 'Exec=${prev.pname} --silent %U'
         '';
       });
