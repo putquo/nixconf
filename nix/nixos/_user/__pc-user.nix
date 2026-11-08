@@ -10,6 +10,7 @@
 
     stylix.targets.gnome-text-editor.enable = false;
     stylix.targets.helix.enable = false;
+    stylix.targets.rofi.enable = false;
   };
 
   programs._1password-gui.polkitPolicyOwners = [ username ];

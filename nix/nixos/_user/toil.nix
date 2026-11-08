@@ -75,12 +75,10 @@
   systemd.services.wazuh = {
     description = "Sets up wazuh container";
     after = [ "network.target" "network-online.target" ];
-    wants = [ "network.target" "network-online.target" ];
+    wants = [ "network-online.target" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       ExecStart = "systemd-nspawn --keep-unit --boot -D /var/lib/machines/byte";
     };
   };
-
-  systemd.targets.multi-user.wants = [ "wazuh.service" ];
 }
