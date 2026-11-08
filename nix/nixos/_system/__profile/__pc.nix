@@ -36,13 +36,10 @@
   networking.networkmanager.enable = true;
   networking.useDHCP = lib.mkDefault true;
 
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-    warn-dirty = false
-  '';
-
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 7d";
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.warn-dirty = false;
   nix.settings.auto-optimise-store = true;
   nix.settings.substituters = [
     "https://nix-community.cachix.org"
