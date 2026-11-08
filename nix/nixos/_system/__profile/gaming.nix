@@ -1,5 +1,9 @@
 { ... }@haumeaArgs:
 { pkgs, ... }@nixosModuleArgs: {
+  environment.systemPackages = [
+    pkgs.heroic
+  ];
+
   hardware.xpadneo.enable = true;
 
   programs.gamescope.enable = true;
