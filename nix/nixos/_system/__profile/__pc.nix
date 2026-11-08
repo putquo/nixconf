@@ -38,9 +38,9 @@
 
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 7d";
+  nix.optimise.automatic = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.warn-dirty = false;
-  nix.settings.auto-optimise-store = true;
   nix.settings.substituters = [
     "https://nix-community.cachix.org"
   ];
@@ -75,6 +75,7 @@
   security.pam.u2f.settings.cue = true;
 
   services.fstrim.enable = true;
+  services.fwupd.enable = true;
   services.udev.extraRules = ''
     ACTION=="remove",\
      ENV{SUBSYSTEM}=="usb",\
@@ -112,4 +113,6 @@
   };
 
   time.timeZone = "Europe/Amsterdam";
+
+  zramSwap.enable = true;
 }
