@@ -78,6 +78,9 @@
 
   services.fstrim.enable = true;
   services.fwupd.enable = true;
+  services.smartd.enable = true;
+  services.smartd.notifications.systembus-notify.enable = true;
+  services.systembus-notify.enable = true;
   services.udev.extraRules = ''
     ACTION=="remove",\
      ENV{SUBSYSTEM}=="usb",\
