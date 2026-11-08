@@ -21,6 +21,8 @@
     "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
   ];
 
+  programs.nix-ld.enable = true;
+
   virtualisation.containers.enable = true;
   virtualisation.docker.enable = true;
   virtualisation.docker.autoPrune.enable = true;
