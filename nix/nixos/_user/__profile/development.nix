@@ -69,6 +69,16 @@
 
   programs.helix.enable = true;
   programs.helix.defaultEditor = true;
+  programs.helix.extraPackages = [
+    pkgs.bash-language-server
+    pkgs.marksman
+    pkgs.nil
+    pkgs.nixpkgs-fmt
+    pkgs.shellcheck
+    pkgs.taplo
+    pkgs.vscode-langservers-extracted
+    pkgs.yaml-language-server
+  ];
   programs.helix.languages.language = [
     {
       name = "nix";

@@ -21,7 +21,6 @@
       pkgs.kubelogin-oidc
       pkgs.slack
       pkgs.sops
-      pkgs.yaml-language-server
 
       (pkgs.wrapHelm pkgs.kubernetes-helm {
         plugins = [
