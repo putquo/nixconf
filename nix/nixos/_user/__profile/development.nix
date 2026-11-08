@@ -134,6 +134,8 @@
   programs.starship.enableFishIntegration = true;
   programs.starship.presets = [ "plain-text-symbols" ];
 
+  programs.tealdeer.enable = true;
+
   programs.zoxide.enable = true;
   programs.zoxide.options = [ "--cmd" "cd" ];
 

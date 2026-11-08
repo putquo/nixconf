@@ -1,8 +1,11 @@
 { ... }@haumeaArgs:
 { pkgs, ... }@nixosModuleArgs: {
   environment.systemPackages = [
+    pkgs.dnsutils
+    pkgs.dust
     pkgs.fd
     pkgs.jq
+    pkgs.ncdu
     pkgs.openssl
     pkgs.ripgrep
     pkgs.tree

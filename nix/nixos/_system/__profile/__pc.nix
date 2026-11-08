@@ -7,6 +7,8 @@
 
   environment.systemPackages = [
     pkgs.curl
+    pkgs.pciutils
+    pkgs.usbutils
     pkgs.vim
     pkgs.wget
   ];
