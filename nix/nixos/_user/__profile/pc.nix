@@ -34,6 +34,19 @@
 
   stylix.targets.firefox.profileNames = [ "default" ];
 
+  xdg.autostart.enable = true;
+  xdg.autostart.entries =
+    let
+      desktopFile = "com.onepassword.OnePassword.desktop";
+      autostart = pkgs.runCommand "1password-autostart" { } ''
+        mkdir -p $out
+        substitute ${osConfig.programs._1password-gui.package}/share/applications/${desktopFile} \
+          $out/${desktopFile} \
+          --replace-fail "Exec=1password %U" "Exec=1password --silent %U"
+      '';
+    in
+    [ "${autostart}/${desktopFile}" ];
+
   xdg.userDirs.enable = true;
   xdg.userDirs.setSessionVariables = true;
   xdg.userDirs.createDirectories = true;
