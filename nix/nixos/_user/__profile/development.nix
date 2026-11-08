@@ -1,5 +1,9 @@
-{ ... }@haumeaArgs:
+{ inputs, ... }@haumeaArgs:
 { config, lib, pkgs, ... }@homeManagerModuleArgs: {
+  imports = [
+    inputs.nix-index-database.homeModules.nix-index
+  ];
+
   home.packages = [
     pkgs.devenv
     pkgs.oauth2c
@@ -107,6 +111,8 @@
     key = config.programs.git.signing.key;
   };
   programs.jujutsu.settings.ui.pager = ":builtin";
+
+  programs.nix-index-database.comma.enable = true;
 
   programs.ssh.enable = true;
   programs.ssh.enableDefaultConfig = false;
