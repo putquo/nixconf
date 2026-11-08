@@ -18,7 +18,7 @@
   users.users.${username} = {
     description = tag;
     extraGroups = [ "docker" "networkmanager" "wheel" ];
-    initialPassword = "initPass";
+    initialHashedPassword = "$y$j9T$UqE7JOa1lbox.5VeLiJOQ.$YO8HV4nd2HtMkj2GIEHdaymgYw3gmDtm4hxpYOFo6TA";
     isNormalUser = true;
     name = username;
     shell = pkgs.fish;
