@@ -23,6 +23,7 @@
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
   programs.direnv.config.hide_env_diff = true;
+  programs.direnv.config.warn_timeout = "0";
   programs.direnv.config.whitelist.prefix =
     [ config.xdg.configHome "${config.home.homeDirectory}/projects" ];
 
